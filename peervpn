@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# debian-style init script for peervpn
+# debian-style init script for peervpn (http://peervpn.net)
 
-# written 2012 by Armin (barfoos) <spampostfach1@yahoo.de>
+# written 2012 by netzverweigerer <spampostfach1@yahoo.de>
 
 # NOTES:
 # $syslog removed from Should-Start section because peervpn does not have
@@ -13,7 +13,7 @@
 # Required-Start:    $remote_fs $network
 # Required-Stop:     $remote_fs $network
 # Should-Start:      $named
-# Should-Stop:	     
+# Should-Stop:       
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: Start peervpn daemon
@@ -52,14 +52,14 @@ restart() {
   sleep 0.5
   i=0;
   while [ -f /var/run/tinc.$1.pid ] ; do
-	if [ $i = '10' ] ; then
-		echo "could not restart: $DESC"
-		break
-	else
-		echo -n "."
-		sleep 0.5
-		i=$(($i+1))
-	fi		
+  if [ $i = '10' ] ; then
+    echo "could not restart: $DESC"
+    break
+  else
+    echo -n "."
+    sleep 0.5
+    i=$(($i+1))
+  fi    
   done
   start
 }
