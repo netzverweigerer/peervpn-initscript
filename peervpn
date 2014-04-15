@@ -51,7 +51,7 @@ restart() {
   stop
   sleep 0.5
   i=0;
-  while [ -f /var/run/tinc.$1.pid ] ; do
+  while [ -f $PIDFILE ] ; do
   if [ $i = '10' ] ; then
     echo "could not restart: $DESC"
     break
